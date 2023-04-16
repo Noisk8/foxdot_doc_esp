@@ -36,6 +36,12 @@ export type Sidebar = Record<
 >;
 export const SIDEBAR: Sidebar = {
 	en: {
+		'FoxDot': [
+			{ text: 'Que es Foxdot?', link: 'en/foxdot' },
+			{ text: 'Instalación', link: 'en/introduccion_del_objeto_del_player' },
+			{ text: 'IDES', link: 'en/patrones_basicos' },
+			
+		],
 		'Empezando': [
 			{ text: 'Introduction', link: 'en/introduction' },
 			{ text: 'Intro del objeto del player ', link: 'en/introduccion_del_objeto_del_player' },

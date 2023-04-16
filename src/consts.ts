@@ -19,16 +19,7 @@ export const KNOWN_LANGUAGES = {
 } as const;
 export const KNOWN_LANGUAGE_CODES = Object.values(KNOWN_LANGUAGES);
 
-export const GITHUB_EDIT_URL = `https://github.com/withastro/astro/tree/main/examples/docs`;
 
-export const COMMUNITY_INVITE_URL = `https://astro.build/chat`;
-
-// See "Algolia" section of the README for more information.
-export const ALGOLIA = {
-	indexName: 'XXXXXXXXXX',
-	appId: 'XXXXXXXXXX',
-	apiKey: 'XXXXXXXXXX',
-};
 
 export type Sidebar = Record<
 	(typeof KNOWN_LANGUAGE_CODES)[number],
@@ -38,8 +29,8 @@ export const SIDEBAR: Sidebar = {
 	en: {
 		'FoxDot': [
 			{ text: 'Que es Foxdot?', link: 'en/foxdot' },
-			{ text: 'Instalación', link: 'en/introduccion_del_objeto_del_player' },
-			{ text: 'IDES', link: 'en/patrones_basicos' },
+			{ text: 'Instalación', link: 'en/instalacion' },
+			{ text: 'IDES', link: 'en/ides' },
 			
 		],
 		'Empezando': [
@@ -49,39 +40,39 @@ export const SIDEBAR: Sidebar = {
 			{ text: 'Variables dependientes del tiempo', link: 'en/variables_dependientes_del_tiempo' },
 		],
 		'Players': [{ text: 'Atributos del Player', link: 'en/atributos_del_player' },
-		{ text: 'Efectos del Player', link: 'en/page-4' },
-		{ text: 'Manipulación Algorítmica', link: 'en/page-4' },
-		{ text: 'Reproduciendo samples', link: 'en/page-4' },
-		{ text: 'Player Keys', link: 'en/page-4' },
-		{ text: 'Groups', link: 'en/page-4' },
-		{ text: 'Raiz y escalas', link: 'en/page-4' },
-		{ text: 'Valores Constantes', link: 'en/page-4' },
+		{ text: 'Efectos del Player', link: 'en/efectos_de_player' },
+		{ text: 'Manipulación Algorítmica', link: 'en/manipulacion' },
+		{ text: 'Reproduciendo samples', link: 'en/repro_samples' },
+		{ text: 'Player Keys', link: 'en/player_keys' },
+		{ text: 'Groups', link: 'en/grupos' },
+		{ text: 'Raiz y escalas', link: 'en/raiz' },
+		{ text: 'Valores Constantes', link: 'en/val_const' },
 	
 	
 	],
 
 		'Patrones': [
-			{ text: 'Metodos del patron', link: 'en/introduction' },
-			{ text: 'Funciones del patron', link: 'en/page-2' },
-			{ text: 'Generador de patrones', link: 'en/page-3' },
-			{ text: 'PGroups', link: 'en/page-3' },
+			{ text: 'Metodos del patron', link: 'en/met_pat' },
+			{ text: 'Funciones del patron', link: 'en/fun_pat' },
+			{ text: 'Generador de patrones', link: 'en/gen_pat' },
+			{ text: 'PGroups', link: 'en/pgrupos' },
 		],
 
 		'Variables de tiempo': [
-			{ text: 'Variables de tiempo basicas', link: 'en/introduction' },
-			{ text: 'Tipos de Variables de tiempo', link: 'en/page-2' },
-			{ text: 'Variables de tiempo Avanzados', link: 'en/page-3' },
+			{ text: 'Variables de tiempo basicas', link: 'en/var_tb' },
+			{ text: 'Tipos de Variables de tiempo', link: 'en/tvt' },
+			{ text: 'Variables de tiempo Avanzados', link: 'en/vta' },
 		],
 		'Reloj (Clock)': [
-			{ text: 'Usando el tiempo del reloj', link: 'en/introduction' },
-			{ text: 'Recursión temporal', link: 'en/page-2' },
+			{ text: 'Usando el tiempo del reloj', link: 'en/usetiemporeal' },
+			{ text: 'Recursión temporal', link: 'en/rec_tem' },
 			
 		],
 
 		'Configuración': [
-			{ text: 'Compartiendo mensajes por OSC', link: 'en/introduction' },
-			{ text: 'Configurando MIDI', link: 'en/page-2' },
-			{ text: 'Usando nuestro porpio Synth', link: 'en/page-3' },
+			{ text: 'Compartiendo mensajes por OSC', link: 'en/osc' },
+			{ text: 'Configurando MIDI', link: 'en/midi' },
+			{ text: 'Usando nuestro porpio Synth', link: 'en/diy' },
 		],
 	},
 };

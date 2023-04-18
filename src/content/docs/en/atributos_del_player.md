@@ -38,7 +38,7 @@ Esta sección lo llevará a través de las diferentes palabras clave de atributo
 
 ### Atributos
 
-Estos son los valores de palabras clave que FoxDot utiliza para decidir qué nota o muestra se reproduce cuando. En ningún orden en particular son: <code>degree</code>, <code>oct</code>,<code> dur</code>, <code>scale</code>, <code>amp</code>, <code>amplify</code>, <code>bpm</code>,<code> sample</code>, y <code>delay</code>. Revisaremos cada uno de estos en profundidad con algún código de ejemplo ahora.
+Estos son los valores de palabras clave que FoxDot utiliza para decidir qué nota o muestra se reproduce cuando. En ningún orden en particular son: <code class="">degree</code>, <code>oct</code>,<code> dur</code>, <code>scale</code>, <code>amp</code>, <code>amplify</code>, <code>bpm</code>,<code> sample</code>, y <code>delay</code>. Revisaremos cada uno de estos en profundidad con algún código de ejemplo ahora.
 
 #### Pitch 
 

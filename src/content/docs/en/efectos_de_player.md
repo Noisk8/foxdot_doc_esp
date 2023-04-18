@@ -143,3 +143,78 @@ p1 >> pluck(dur=4, bend=-1)
 # Retrasa el efecto bend para que comience a la mitad de la nota
 p1 >> pluck(dur=4, slide=0.5, bend=0.5)
 ~~~
+
+### Picar (chop)
+
+Palabras clave: <code>chop</code>
+
+Esta “ corta ” la señal de audio en partes “ n ”, donde “ n ” es el valor que proporciona al argumento de la palabra clave. Utiliza el sostenido del conjunto de notas ( usando <code>sus</code>) para determinar el tamaño de las piezas, por lo que también puede combinar <code>chop</code> y <code>sus</code> para crear efectos interesantes.
+
+~~~
+# Picar un sonido en 4 partes
+p1 >> pluck([0,1,2,3], dur=4, chop=4)
+
+# Si varía la duración, también variarán los tamaños de las chuletas
+p1 >> pluck([0,[4,6,7]], dur=PDur(3,8), chop=4)
+
+# Al cambiar un único valor de "sus" se igualan los tamaños y se crea un bonito efecto de eco superpuesto
+p1 >> pluck([0,[4,6,7]], dur=PDur(3,8), chop=4, sus=2)
+~~~
+
+### Coarse 
+
+palabras clave: <code> coarse</code>
+
+Esto es similar a “ chop ” pero difiere en que la señal de audio no está siendo “ picada ” arriba, la velocidad de control ( la frecuencia de las notas / la tasa de reproducción para muestras ) es. Esto puede ser útil en varias situaciones.
+
+La primera es cuando se reproducen muestras usando el sintetizador de reproducción: el uso de chop esencialmente solo reproduce la mitad del audio ya que la otra mitad está siendo silenciada por el efecto “ chop ”. El uso de grueso esencialmente detendrá el sonido y lo reanudará después de un ligero retraso. Lo hace configurando la velocidad de reproducción en 0, mientras que chop establecería la amplitud en 0. Escuche la diferencia ejecutando el código a continuación en FoxDot:
+
+~~~
+# Using chop
+c1 >> play("C", dur=4, chop=16, coarse=0)
+
+# Using coarse
+c1 >> play("C", dur=4, coarse=16, chop=0)
+~~~
+
+Otro uso para el grueso sería cuando obtienes sonidos “ recortando ” cuando usas chop. Esto ocurre cuando una amplitud va a 0 muy rápidamente y suena como un pequeño “ pop ”. Ejecute estas líneas de código en FoxDot y escuche las diferencias:
+
+~~~
+b1 >> bass(dur=2, chop=4, coarse=0)
+
+b1 >> bass(dur=2, coarse=4, chop=0)
+~~~
+
+
+La línea usando <code>coarse = 4</code> suena un poco más limpio. Desafortunadamente esto no siempre sucede y el coarse el efecto no siempre se puede aplicar a algunos sintetizadores, por ejemplo klank.
+
+
+### Filtros de paso alto 
+
+Palabras clave: <code>hpf</code>, <code>hpr = 1</code>
+
+Un sonido no trivial está compuesto por una combinación de ondas de sonido que vibran a varias frecuencias y amplitudes, y algunas de ellas pueden filtrarse “ a partir de una señal usando un filtro. Esto a menudo se conoce como síntesis sustractiva. Un filtro de paso alto eliminará partes de una señal que son abajo una cierta frecuencia, es decir, solo permite que las frecuencias pasen más que el umbral. Esto se puede aplicar en FoxDot simplemente configurando el <code>hpf</code> ( abreviatura de filtro de paso alto ) valor:
+
+~~~
+# Ajusta el corte del filtro paso alto a 2000 Hz
+d1 >> play("x-o-", hpf=2000)
+
+# Establecer el corte para cambiar con el tiempo utilizando un linvar
+d1 >> play("x-o-", hpf=linvar([0,2000],32))
+~~~
+
+También puede establecer la resonancia de paso alto para el filtro utilizando el <code>hpr</code> palabra clave. Esto a veces se conoce como “ rq ” o “ hpq ”. A medida que este valor disminuye, los sobretonos cerca del valor de corte se aumentan –, un valor cercano a 0 sonará como una onda sinusoidal oscilante en el valor establecido usando <code>hpf</code>. ¡Tenga cuidado con los valores muy pequeños y muy grandes, ya que puede obtener sonidos muy fuertes!
+
+~~~
+
+# Ajusta el corte del filtro paso alto a 2000 Hz
+d1 >> play("x-o-", hpf=2000)
+
+# Ajusta la resonancia a 0,2. ¿Oyes la diferencia?
+d1 >> play("x-o-", hpf=2000, hpr=0.2)
+
+# Ajuste el corte *y* la resonancia para que cambien con el tiempo mediante linvar
+d1 >> play("x-o-", hpf=linvar([0,2000],32), hpr=linvar([1,0.1],28))
+
+~~~
+

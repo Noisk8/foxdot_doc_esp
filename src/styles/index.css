@@ -409,3 +409,17 @@ h2.heading {
 .current-header-link a {
 	color: var(--theme-text);
 }
+
+
+code{
+	box-shadow: 0 0 1px rgb(255, 0, 212),
+	0 0 5px rgb(255, 0, 234);
+	border-radius: 10%;
+	background-color: rgba(255, 0, 234, 0.072);
+  }
+  code:hover {
+	box-shadow: 0 0 5px rgb(255, 0, 200) ,
+	0 0 25px rgba(255, 0, 212, 0.251), 0 0 50px rgba(255, 0, 255, 0.436),
+	0 0 100px rgb(255, 0, 200), 0 0 200px rgba(255, 0, 255, 0.452);
+
+  }

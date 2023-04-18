@@ -1,6 +1,6 @@
 ---
 title: "Atributos del Player "
-description: "Lorem ipsum dolor sit amet - 3"
+description: "Atributos del objeto player"
 ---
 
 ### Introducción
@@ -70,7 +70,7 @@ Esta es la duración de una nota. Las duraciones no pueden ser negativas y deben
 # Un solo valor para todas las notas
 p1 >> pluck([0, 1, 2, 3], dur=1/2)
 
-# A list of durations can be integers, fractions, or floating point values
+# Una lista de duraciones puede ser de números enteros, fracciones o valores de coma flotante
 p1 >> pluck([0, 1, 2, 3], dur=[1, 1/2, 0.5])
 
 p1 >> pluck([0, 1, 2, 3], dur=[0.1, 0.3, 0.43, 0.17])
@@ -79,10 +79,10 @@ p1 >> pluck([0, 1, 2, 3], dur=[0.1, 0.3, 0.43, 0.17])
 Puede “ omitir ” una nota estableciendo la duración en cero o “ mudo ” usando un objeto de descanso con la duración entre paréntesis:
 
 ~~~
-# Skip every 3rd note
+# Saltar cada 3ª nota
 p1 >> pluck([0, 1, 2, 3], dur=[1, 1, 0])
 
-# Rest every 3rd note for 2 beats
+# Descansa cada 3ª nota durante 2 tiempos
 p1 >> pluck([0, 1, 2, 3], dur=[1, 1, rest(2)])
 ~~~
 
@@ -105,23 +105,23 @@ Como su nombre indica, esto establece la escala del objeto reproductor. Debe ser
 ﻿ Por defecto, FoxDot usa la escala “ mayor ”. Para cambiar esto a la escala menor, por ejemplo, puede usar el argumento de palabra clave de escala y el <code>Scale.minor</code> escala así:
 
 ~~~
-# Play the major scale by default
+# Tocar la escala mayor por defecto
 p1 >> pluck([0, 2, 4, 6, 7])
 
-# Change to minor
+# Cambio a menor
 p1 >> pluck([0, 2, 4, 6, 7], scale=Scale.minor)
 ~~~
 
 Si desea cambiar la escala para todos los jugadores, puede establecer el <code>Scale.default</code> valor:
 
 ~~~
-# Start a player in the default scale (Major)
+# Iniciar un reproductor en la escala por defecto (Mayor)
 p1 >> pluck([0, 2, 4, 6, 7])
 
-# Change the default scale to Dorian
+# Cambiar la escala por defecto a Dórica
 Scale.default = Scale.dorian
 
-# You can specify the default scale as a string
+# Puede especificar la escala por defecto como una cadena
 Scale.default = "dorian"
 ~~~
 
@@ -177,13 +177,13 @@ Palabra clave: <code>sample</code>
 
 Esto solo se usa con el reproductor de muestra, llamado play. Este SynthDef toma una cadena como su primer argumento ( conocido como la cadena de reproducción “ ” ) en lugar de una lista de valores de tono y reproduce muestras de audio almacenadas en su computadora portátil en función del carácter en la cuerda. Cada carácter se asigna a una carpeta de muestras y, por defecto, reproduce la primera muestra en esa carpeta. Para reproducir una muestra diferente, use la palabra clave de muestra:
 ~~~
-# Default samples
+# Samples por defecto
 p1 >> play("x-o-")
 
-# A different set of samples
+# Un conjunto diferente de muestras
 p1 >> play("x-o-", sample=1)
 
-# Can be a list of values
+# Puede ser una lista de valores
 p1 >> play("x-o-", sample=[0, 1, 2])
 ~~~
 
@@ -203,10 +203,10 @@ p1 >> pluck([0, 1, 2, 3], delay=[0, 0, 0.5])
 Si desea reproducir la nota y reproducirla con un retraso, puede usar una tupla o PGroup con el primer valor 0, lo que significa que no hay retraso. El segundo valor indicará cuánto tiempo retrasar la segunda nota:
 
 ~~~
-# "Stutter" every third note
+# "Tartamudear" cada tres notas
 p1 >> pluck([0, 1, 2, 3], delay=[0, 0, (0, 0.5)])
 
-# Delay a note to play *after* the following one
+# Retrasar una nota para que suene *después* de la siguiente
 p1 >> pluck([0, 1, 2, 3], delay=[0, 0, (0, 1.5)])
 ~~~
 
@@ -217,6 +217,6 @@ Palabra clave: <code>root</code>
 Así como puedes usar una escala diferente a la Scale.default desde el interior de un reproductor, también puede usar una nota raíz diferente ( más información aquí). Debe ser un número o secuencia de números y no un nombre de nota, es decir. "C#"
 
 ~~~
-# Change the root every 8 beats
+# cambia el root cada 8  beats
 p1 >> blip([0, 7, 6, 4, 2], dur=1/4, sus=2, root=var([0, 2], 8))
 ~~~
